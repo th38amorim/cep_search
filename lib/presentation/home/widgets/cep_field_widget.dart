@@ -20,7 +20,7 @@ class CepFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<FindAddressCubit, FindAddressState>(
+    return BlocConsumer<GetAddressCubit, GetAddressState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Column(
@@ -51,7 +51,7 @@ class CepFieldWidget extends StatelessWidget {
             CepConsultButtonWidget(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  context.read<FindAddressCubit>().getAddressByCEP(cep: textEditingController.text);
+                  context.read<GetAddressCubit>().getAddressByCEP(cep: textEditingController.text);
                 }
               },
             ),

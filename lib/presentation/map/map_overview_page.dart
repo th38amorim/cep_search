@@ -3,17 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapTestWidget extends StatefulWidget {
-  const MapTestWidget({Key? key, required this.latitude, required this.longitude}) : super(key: key);
+class OverviewMapPage extends StatefulWidget {
+  const OverviewMapPage({Key? key, required this.latitude, required this.longitude, required this.cep}) : super(key: key);
 
+  final String cep;
   final double latitude;
   final double longitude;
 
   @override
-  State<MapTestWidget> createState() => _MapTestWidgetState();
+  State<OverviewMapPage> createState() => _OverviewMapPageState();
 }
 
-class _MapTestWidgetState extends State<MapTestWidget> {
+class _OverviewMapPageState extends State<OverviewMapPage> {
 
   late GoogleMapController mapController;
 
@@ -43,7 +44,7 @@ class _MapTestWidgetState extends State<MapTestWidget> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('CEP'),
+        title: Text('CEP: ${widget.cep}'),
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
